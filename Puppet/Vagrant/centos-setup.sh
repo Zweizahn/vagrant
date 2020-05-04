@@ -14,6 +14,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 sudo dnf -y install https://yum.puppetlabs.com/puppet-release-el-8.noarch.rpm
 sudo dnf install -y epel-release
 sudo dnf -y install gcc gcc-c++ kernel-devel
+sudo dnf -y install puppet-bolt
 
 sudo timedatectl set-timezone Europe/Berlin
 

@@ -7,9 +7,12 @@ sudo dnf install -y vim
 sudo dnf install -y git    
 sudo dnf install -y build-essential
 sudo dnf install -y unzip 
+
+# Preparing for Puppet installation
 sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo dnf -y install https://yum.puppetlabs.com/puppet-release-el-8.noarch.rpm
 sudo dnf install -y epel-release
+
 sudo timedatectl set-timezone Europe/Berlin
 
 ssh-keygen -t rsa -b 2048  -f /home/vagrant/.ssh/id_rsa

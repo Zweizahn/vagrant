@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+	config.vm.define "master" do |master|
+		master.vm.box = "bento/centos-8"
+		master.vm.hostname = "master"
+		master.vm.network :private_network, ip: "10.1.1.10"
+		master.vm.provider "virtualbox" do |vb|
+			vb.memory = "512"
+			vb.name = "Puppet Master"
+		end
+		master.vm.provision :shell, path: "centos-setup.sh"
+	end
+
+	config.vm.define "agent" do |agent|
+		agent.vm.box = "bento/centos-8"
+		agent.vm.hostname = "agent"
+		agent.vm.network :private_network, ip: "10.1.1.11"
+		agent.vm.provider "virtualbox" do |vb|
+			vb.memory = "512"
+			vb.name = "Puppet Agent"
+		end
+		agent.vm.provision :shell, path: "centos-setup.sh"
+	end
+
+end

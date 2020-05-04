@@ -7,6 +7,7 @@ sudo dnf install -y vim
 sudo dnf install -y git    
 sudo dnf install -y build-essential
 sudo dnf install -y unzip 
+sudo dnf -y install net-tools
 
 # Preparing for Puppet installation
 sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm

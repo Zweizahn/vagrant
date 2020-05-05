@@ -24,4 +24,27 @@ Vagrant.configure("2") do |config|
 		agent.vm.provision :shell, path: "centos-setup.sh"
 	end
 
+	config.vm.define "webserver" do |webserver|
+		webserver.vm.box = "bento/centos-8"
+		webserver.vm.hostname = "webserver"
+		webserver.vm.network :private_network, ip: "10.1.1.12"
+		webserver.vm.provider "virtualbox" do |vb|
+			vb.memory = "256"
+			vb.name = "Puppet webserver"
+		end
+		webserver.vm.provision :shell, path: "centos-setup.sh"
+	end
+
+	config.vm.define "appserver" do |appserver|
+		appserver.vm.box = "bento/centos-8"
+		appserver.vm.hostname = "appserver"
+		appserver.vm.network :private_network, ip: "10.1.1.13"
+		appserver.vm.provider "virtualbox" do |vb|
+			vb.memory = "256"
+			vb.name = "Puppet appserver"
+		end
+		appserver.vm.provision :shell, path: "centos-setup.sh"
+	end
+
+
 end

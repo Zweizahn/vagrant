@@ -25,5 +25,7 @@ echo "
 
 10.1.1.10 master
 10.1.1.11 agent
+10.1.1.12 webserver
+10.1.1.13 appserver
 " >> /etc/hosts
 

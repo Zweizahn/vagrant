@@ -4,8 +4,8 @@
 Vagrant.configure("2") do |config|
 	config.vm.define "controller" do |controller|
 		controller.vm.box = "bento/ubuntu-20.04"
-		controller.vm.hostname = "controller"
-		controller.vm.network :private_network, ip: "10.0.1.10"
+		controller.vm.hostname = "Jenkins"
+		controller.vm.network :private_network, ip: "10.0.5.10"
 		controller.vm.provider "virtualbox" do |vb|
 			vb.memory = "1024"
 			vb.name = "Controller 20.04"

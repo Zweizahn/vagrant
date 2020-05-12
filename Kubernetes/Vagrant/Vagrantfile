@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+	config.vm.define "master" do |master|
+		master.vm.box = "bento/ubuntu-20.04"
+		master.vm.hostname = "k8-master"
+		master.vm.network :private_network, ip: "10.0.0.20"
+		master.vm.provider "virtualbox" do |vb|
+			vb.memory = "512"
+			vb.name = "master 20.04"
+		end
+		master.vm.provision :shell, path: "ubuntu-setup.sh"
+	end
+begin
+	(1..3).each do |i|
+	   config.vm.define "node#{i}" do |node|
+		   node.vm.box = "bento/ubuntu-20.04"
+		   node.vm.hostname = "k8-node#{i}"
+		   node.vm.network :private_network, ip: "10.0.0.2#{i}"
+		   node.vm.provider "virtualbox" do |vb|
+				vb.memory = "512"
+		   end
+		   node.vm.provision :shell, path: "ubuntu-setup.sh"
+		   
+	   end
+
+	end
+end
+end	

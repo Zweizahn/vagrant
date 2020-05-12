@@ -14,6 +14,6 @@ echo "
 10.0.0.20 k8-master
 10.0.0.21 k8-node1
 10.0.0.22 k8-node2
-10.0.0.22 k8-node3
+10.0.0.23 k8-node3
 " >> /etc/hosts
 

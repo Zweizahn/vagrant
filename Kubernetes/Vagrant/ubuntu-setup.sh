@@ -7,7 +7,7 @@ sudo apt-get dist-upgrade -y
 swapoff -a
 sed -i.bak '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
-ssh-keygen -t rsa -b 2048  -f /home/vagrant/.ssh/id_rsa
+ssh-keygen -t rsa -b 2048  -f /home/vagrant/.ssh/id_rsa -q -P ""
 
 echo " 
 
